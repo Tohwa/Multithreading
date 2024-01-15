@@ -7,6 +7,7 @@ public class ParticleManager : MonoBehaviour
 {
     public int particleCount = 10000;
     private List<Task> particleUpdateTasks = new List<Task>();
+    private List<Particle> particles = new List<Particle>();
 
     void Start()
     {
@@ -28,22 +29,29 @@ public class ParticleManager : MonoBehaviour
             particleObject.transform.parent = particleParent.transform;
             Particle particleComponent = particleObject.AddComponent<Particle>();
             particleComponent.moveSpeed = Random.Range(1f, 5f);
+            particles.Add(particleComponent);
         }
     }
 
     void UpdateParticles()
     {
+        // Calculate the batch size based on the number of processors
         int batchSize = particleCount / System.Environment.ProcessorCount;
 
+        // Loop to distribute particle update tasks across multiple threads
         for (int i = 0; i < System.Environment.ProcessorCount; i++)
         {
             int start = i * batchSize;
             int end = (i == System.Environment.ProcessorCount - 1) ? particleCount : (i + 1) * batchSize;
 
+            // Add a task for updating particles in the specified range to the task list
             particleUpdateTasks.Add(Task.Run(() => UpdateParticlesInRange(start, end)));
         }
 
+        // Wait for all tasks to complete before moving on
         Task.WaitAll(particleUpdateTasks.ToArray());
+
+        // Clear the task list for the next frame
         particleUpdateTasks.Clear();
     }
 
@@ -52,11 +60,11 @@ public class ParticleManager : MonoBehaviour
         // Access Unity-specific operations within this block
         UnityMainThreadDispatcher.Instance().Enqueue(() =>
         {
-            // Find all GameObjects with the Particle component and update them
-            Particle[] particles = GameObject.FindObjectsOfType<Particle>();
+            // Loop through the specified range and update each particle
             for (int i = start; i < end; i++)
             {
-                particles[i].Update();
+                Vector3 newPosition = particles[i].transform.position + Random.onUnitSphere * 3f * particles[i].moveSpeed * Time.deltaTime;
+                particles[i].transform.position = newPosition;
             }
         });
     }

@@ -480,7 +480,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979514460}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8615496d94892e54ea41a81d2bf84ff0, type: 3}
   m_Name: 
@@ -493,14 +493,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979514460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beae27d700a6eba4e9f7a6bbab4be633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleCount: 10000
-  fireParticle: {fileID: 4056762616167550064, guid: b0225d2dc75694a4faf2074a018f1618,
-    type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

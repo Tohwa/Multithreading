@@ -6,7 +6,6 @@ public class ParticleManagerNonOptimized : MonoBehaviour
 {
     public int particleCount = 10000;
     private List<ParticleNonOptimized> particles = new List<ParticleNonOptimized>();
-    public GameObject fireParticle;
 
     void Start()
     {
@@ -25,7 +24,6 @@ public class ParticleManagerNonOptimized : MonoBehaviour
         {
             // Instantiate a GameObject with the Particle component attached
             GameObject particleObject = new GameObject("Particle");
-            particleObject = fireParticle;
             particleObject.transform.parent = particleParent.transform;
             ParticleNonOptimized particleComponent = particleObject.AddComponent<ParticleNonOptimized>();
             particleComponent.moveSpeed = Random.Range(1f, 5f);
@@ -37,7 +35,8 @@ public class ParticleManagerNonOptimized : MonoBehaviour
     {
         foreach (ParticleNonOptimized particle in particles)
         {
-            particle.Update();
+            Vector3 newPosition = particle.transform.position + Random.onUnitSphere * 3f * particle.moveSpeed * Time.deltaTime;
+            particle.transform.position = newPosition;
         }
     }
 }
