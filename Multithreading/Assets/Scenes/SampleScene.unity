@@ -436,9 +436,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 979514461}
-  - component: {fileID: 979514462}
-  - component: {fileID: 979514463}
   - component: {fileID: 979514464}
+  - component: {fileID: 979514465}
+  - component: {fileID: 979514466}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -461,37 +461,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &979514462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979514460}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 311738463b20beb49825d5a5eae95f9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleCount: 300
-  moveSpeed: 1
-  particlePrefab: {fileID: 5987572886358014243, guid: 923791c7c386b014dab87eb63f30018d,
-    type: 3}
---- !u!114 &979514463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979514460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd37dc45e96db874b800c7ff041521ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleCount: 300
-  particlePrefab: {fileID: 5987572886358014243, guid: 923791c7c386b014dab87eb63f30018d,
-    type: 3}
 --- !u!114 &979514464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +473,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16173428f7358476fa784f899e396692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &979514465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979514460}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8615496d94892e54ea41a81d2bf84ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleCount: 10000
+--- !u!114 &979514466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979514460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beae27d700a6eba4e9f7a6bbab4be633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleCount: 10000
+  fireParticle: {fileID: 4056762616167550064, guid: b0225d2dc75694a4faf2074a018f1618,
+    type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
